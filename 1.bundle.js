@@ -1,0 +1,1 @@
+webpackJsonp([1],{13:function(module,exports){module.exports='<ul><li class=captain ng-repeat="captain in captains"><p ng-bind=captain.name></p></li></ul><a ui-sref=main>Go back to main</a>'}});

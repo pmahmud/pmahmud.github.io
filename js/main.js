@@ -2,7 +2,7 @@
 /**
  * Main AngularJS Web Application
  */
-var app = angular.module('pmahmud', [
+var app = angular.module('pmahmudApp', [
   'ngRoute'
 ]);
 

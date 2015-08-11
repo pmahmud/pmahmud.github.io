@@ -27,7 +27,7 @@ app.controller('BlogCtrl', function (/* $scope, $location, $http */) {
 });
 
 app.controller('MainCtrl', function (Github, $log) {
-  var repo = github.getRepo('pmahmud', 'pmahmud');
+  var repo = Github.getRepo('pmahmud', 'pmahmud');
   repo.contents('gh-pages', "partials", function(err, contents) {
     $log.info(contents);
   });

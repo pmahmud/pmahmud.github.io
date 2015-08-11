@@ -3,8 +3,7 @@
  * Main AngularJS Web Application
  */
 var app = angular.module('pmahmudApp', [
-  'ngRoute',
-  'Github'
+  'ngRoute'
 ]);
 
 /**
@@ -37,4 +36,11 @@ app.controller('MainCtrl', function (Github, $log) {
 
 app.controller('PageCtrl', function (/* $scope, $location, $http */) {
   console.log("Page Controller reporting for duty.");
+});
+
+
+app.factory("Github", function ($window) {
+  // the if check is unnecessary since an undefined
+  // is returned anyway when the Snap doesn't exist.
+  return $window.Github;
 });

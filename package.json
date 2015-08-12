@@ -1,0 +1,22 @@
+{
+  "name": "pmahmud",
+  "version": "1.0.0",
+  "description": "-[Angular on Github](https://github.com/airpair/T0021-airpair-angularjs-tutorial)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmahmud/pmahmud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmahmud/pmahmud/issues"
+  },
+  "homepage": "https://github.com/pmahmud/pmahmud#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}

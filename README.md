@@ -58,3 +58,9 @@ http://www.cssdesignawards.com/articles/10-cool-css-js-demos-
 tuts-to-apply-and-use/67/
 
 http://codepen.io/abergin
+
+bg and font
+http://codepen.io/andytran/pen/bdmoQr
+http://www.getmdl.io/templates/android-dot-com/index.html
+list
+http://www.getmdl.io/templates/blog/index.html

@@ -9,7 +9,8 @@ var app = angular.module('pmahmudApp', [
 /**
  * Configure the Routes
  */
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider, locationProvider) {
+  $locationProvider.html5Mode(true);
   $routeProvider
     .when("/", {
       templateUrl: "partials/home.html",

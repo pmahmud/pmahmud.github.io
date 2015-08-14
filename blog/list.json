@@ -3,7 +3,27 @@
     {
       "title" : "My first blog",
       "tag":  ["first","blog","github"],
-      "date": "08/13/2015"
+      "date": "08/13/2015",
+      "file": "08132015.md"
+    },
+    {
+      "title" : "My Second blog",
+      "tag":  ["first","blog","github"],
+      "date": "08/13/2015",
+      "file": "08132015.md"
+    },
+    {
+      "title" : "My third blog",
+      "tag":  ["first","blog","github"],
+      "date": "08/13/2015",
+      "file": "08132015.md"
+    },
+    {
+      "title" : "My Third blog",
+      "tag":  ["first","blog","github"],
+      "date": "08/13/2015",
+      "file": "08132015.md"
     }
+
   ]
 }

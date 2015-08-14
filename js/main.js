@@ -9,8 +9,7 @@ var app = angular.module('pmahmudApp', [
 /**
  * Configure the Routes
  */
-app.config(['$routeProvider', function ($routeProvider, locationProvider) {
-  $locationProvider.html5Mode(true);
+app.config(['$routeProvider', function ($routeProvider, $locationProvider) {
   $routeProvider
     .when("/", {
       templateUrl: "partials/home.html",
@@ -21,6 +20,8 @@ app.config(['$routeProvider', function ($routeProvider, locationProvider) {
       controller: "BlogCtrl"
     })
     .otherwise("/404", {templateUrl: "404.html", controller: "PageCtrl"});
+
+  $locationProvider.html5Mode(true);  
 }]);
 
 

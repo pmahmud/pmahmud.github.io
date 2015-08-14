@@ -28,9 +28,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 app.controller('BlogCtrl', function ($scope, BlogFactory) {
   $scope.BlogCtrl = this;
   angular.extend($scope.BlogCtrl,{
-    title: "My blogs"
+    title: "My blogs",
+    blogs: BlogFactory.getBlogs()
   });
-  console.log('blog');
+  console.log(BlogFactory.getBlogs());
 });
 
 app.controller('MainCtrl', function ($log) {
@@ -43,13 +44,22 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 
 app.factory('BlogFactory', function($http, $log){
   var jsonURL = 'https://raw.githubusercontent.com/pmahmud/pmahmud.github.io/master/blog/list.json';
+  var blogs = {};
   $http.get(jsonURL).then(function(data){
-    $log.info(angular.fromJson(data));
+    try{
+      blogs = angular.fromJson(data);
+    }catch(error){
+      //handleError
+    }
   }, function(response){
     //handleError
   });
-  return {
 
+  var _getBlogs = function(){
+    return blogs;
+  };
+  return {
+    getBlogs : _getBlogs
   };
 });
 

@@ -45,9 +45,9 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 app.factory('BlogFactory', function($http, $log){
   var jsonURL = 'https://raw.githubusercontent.com/pmahmud/pmahmud.github.io/master/blog/list.json';
   var blogs = {};
-  $http.get(jsonURL).then(function(data){
+  $http.get(jsonURL).then(function(reponse){
     try{
-      blogs = angular.fromJson(data);
+      blogs = angular.fromJson(reponse.data.blogs);
     }catch(error){
       //handleError
     }

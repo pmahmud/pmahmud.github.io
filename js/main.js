@@ -9,7 +9,7 @@ var app = angular.module('pmahmudApp', [
 /**
  * Configure the Routes
  */
-app.config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     .when("/", {
       templateUrl: "partials/home.html",
@@ -20,8 +20,6 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
       controller: "BlogCtrl"
     })
     .otherwise("/404", {templateUrl: "404.html", controller: "PageCtrl"});
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
 }]);
 
 /**

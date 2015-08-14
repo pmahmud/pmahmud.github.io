@@ -29,17 +29,23 @@ app.controller('BlogCtrl', function ($scope, BlogFactory, $log) {
   $scope.BlogCtrl = this;
   var _initBlogCtrl = function(){
     // this.blogs = [];
-    BlogFactory.getBlogs(function(blogs){
+    BlogFactory.getAllBlogs(function(blogs){
       // this.blogs = blogs;
-      $log.info('got it');
       $log.info(blogs);
       $scope.BlogCtrl.blogs= blogs;
     });
 
   };
+  var _getBlog = function(blog){
+    BlogFactory.getBlog(blog.file, function(fileContent){
+      $log.info(fileContent);
+    });
+  };
+
   _initBlogCtrl();
   angular.extend(this,{
     title: "My blogs",
+    getBlog: _getBlog
   });
 });
 
@@ -52,13 +58,14 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 });
 
 app.factory('BlogFactory', function($http, $log){
+  var url = 'https://raw.githubusercontent.com/pmahmud/pmahmud.github.io/master/blog/';
   var jsonURL = 'https://raw.githubusercontent.com/pmahmud/pmahmud.github.io/master/blog/list.json';
   //var blogs = {};
 
 
-  var _getBlogs = function(callback){
+  var _getAllBlogs = function(callback){
     $http.get(jsonURL).then(function(response){
-      $log.info(response);
+      // $log.info(response);
       try{
         var blogs = angular.fromJson(response.data.blogs);
         callback(blogs);
@@ -68,7 +75,6 @@ app.factory('BlogFactory', function($http, $log){
     }, function(response){
       //handleError
     });
-//    return blogs;
   };
 
   // _getBlogs(function(data){
@@ -76,8 +82,19 @@ app.factory('BlogFactory', function($http, $log){
   //   $log.log(data);
   // });
 
+  var _getBlog = function(file, callback){
+    $http.get( url + file ).then(function(response){
+      var blogContent = response.data;
+      callback(blogContent);
+    }, function(response){
+      //handleError
+    });
+
+  };
+
   return {
-    getBlogs : _getBlogs
+    getAllBlogs : _getAllBlogs,
+    getBlog: _getBlog
   };
 });
 

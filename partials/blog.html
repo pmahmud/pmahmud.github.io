@@ -1,8 +1,10 @@
 <h1>
   {{BlogCtrl.title}}
 </h1>
-<input type="text" name="name" value="" placeholder="search">
+<input type="text" name="name" value="" placeholder="search" ng-model="search.$">
 <input type="button" name="name" value="Search">
 <ul>
-  <li ng-repeat="blog in BlogCtrl.blogs">{{blog.title}}</li>
+  <li ng-repeat="blog in BlogCtrl.blogs | filter:search" ng-click="BlogCtrl.getBlog(blog)">
+    {{blog.title}}
+  </li>
 </ul>

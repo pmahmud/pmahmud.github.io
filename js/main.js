@@ -9,7 +9,7 @@ var app = angular.module('pmahmudApp', [
 /**
  * Configure the Routes
  */
-app.config(['$routeProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
   $routeProvider
     .when("/", {
       templateUrl: "partials/home.html",

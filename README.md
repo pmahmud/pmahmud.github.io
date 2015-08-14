@@ -5,7 +5,6 @@
 -[Angular on Github](https://github.com/airpair/T0021-airpair-angularjs-tutorial)
 
 Access-token:
-7eea6c9d1e35cfcdf440929d15622de6a8382a50
 
 
 

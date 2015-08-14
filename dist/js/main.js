@@ -27,20 +27,13 @@ app.config(['$routeProvider', function ($routeProvider) {
  */
 app.controller('BlogCtrl', function ($scope, BlogFactory, $log) {
   $scope.BlogCtrl = this;
-  var _initBlogCtrl = function(){
-    // this.blogs = [];
-    BlogFactory.getBlogs(function(blogs){
-      // this.blogs = blogs;
-      $log.info('got it');
-      $log.info(blogs);
-      $scope.BlogCtrl.blogs= blogs;
-    });
-
-  };
-  _initBlogCtrl();
-  angular.extend(this,{
+  angular.extend($scope.BlogCtrl,{
     title: "My blogs",
+    blogs: BlogFactory.getBlogs(function(blogs){
+      $log.info(blogs);
+    })
   });
+  console.log(BlogFactory.getBlogs());
 });
 
 app.controller('MainCtrl', function ($log) {
@@ -52,6 +45,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 });
 
 app.factory('BlogFactory', function($http, $log){
+  $log.info('calling _getBlogs()');
   var jsonURL = 'https://raw.githubusercontent.com/pmahmud/pmahmud.github.io/master/blog/list.json';
   //var blogs = {};
 
@@ -60,6 +54,7 @@ app.factory('BlogFactory', function($http, $log){
     $http.get(jsonURL).then(function(response){
       try{
         var blogs = angular.fromJson(response.data.blogs);
+        $log.info(response);
         callback(blogs);
       }catch(error){
         //handleError
@@ -70,10 +65,9 @@ app.factory('BlogFactory', function($http, $log){
 //    return blogs;
   };
 
-  // _getBlogs(function(data){
-  //   $log.info('calling _getBlogs()');
-  //   $log.log(data);
-  // });
+  _getBlogs(function(data){
+    $log.info('calling _getBlogs()');
+  });
 
   return {
     getBlogs : _getBlogs

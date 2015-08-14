@@ -38,11 +38,7 @@ app.controller('BlogCtrl', function ($scope) {
 
 });
 
-app.controller('MainCtrl', function (Github, $log) {
-  var repo = Github.getRepo('pmahmud', 'pmahmud');
-  repo.contents('gh-pages', "partials", function(err, contents) {
-    $log.info(contents);
-  });
+app.controller('MainCtrl', function ($log) {
   console.log("Page Controller reporting for duty.");
 });
 
@@ -51,8 +47,6 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
 });
 
 
-app.factory("Github", function ($window) {
-  // the if check is unnecessary since an undefined
-  // is returned anyway when the Snap doesn't exist.
-  return $window.Github;
-});
+// app.factory("Github", function ($window) {
+//   return $window.Github;
+// });

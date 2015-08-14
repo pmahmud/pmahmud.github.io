@@ -25,7 +25,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 /**
  * Controls the Blog
  */
-app.controller('BlogCtrl', function ($scope) {
+app.controller('BlogCtrl', function ($scope, BlogFactory) {
   $scope.BlogCtrl = this;
   angular.extend($scope.BlogCtrl,{
     title: "My blogs"
@@ -41,6 +41,15 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
   console.log("Page Controller reporting for duty.");
 });
 
+app.factory('BlogFactory', function($http, $log){
+  var jsonURL = 'https://raw.githubusercontent.com/pmahmud/pmahmud.github.io/master/blog/list.json';
+  $http.get(jsonURL).then(function(data){
+    $log.info(angular.toJson(data));
+  });
+  return {
+
+  };
+});
 
 // app.factory("Github", function ($window) {
 //   return $window.Github;

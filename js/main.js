@@ -20,7 +20,8 @@ app.config(['$routeProvider', function ($routeProvider, $locationProvider) {
       controller: "BlogCtrl"
     })
     .otherwise("/404", {templateUrl: "404.html", controller: "PageCtrl"});
-    $locationProvider.html5Mode(true).hashPrefix('!');
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
 }]);
 
 /**

@@ -58,6 +58,7 @@ app.factory('BlogFactory', function($http, $log){
 
   var _getBlogs = function(callback){
     $http.get(jsonURL).then(function(response){
+      $log.info(response);
       try{
         var blogs = angular.fromJson(response.data.blogs);
         callback(blogs);

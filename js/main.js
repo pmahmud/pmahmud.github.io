@@ -11,8 +11,14 @@ var app = angular.module('pmahmudApp', [
  */
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
-    // Home
-    .when("/", {templateUrl: "partials/home.html", controller: "MainCtrl"})
+    .when("/", {
+      templateUrl: "partials/home.html",
+      controller: "MainCtrl"
+    })
+    .when("/blog", {
+      templateUrl: "partials/blog.html",
+      controller: "BlogCtrl"
+    })
     .otherwise("/404", {templateUrl: "404.html", controller: "PageCtrl"});
 }]);
 
@@ -22,8 +28,12 @@ app.config(['$routeProvider', function ($routeProvider) {
 /**
  * Controls the Blog
  */
-app.controller('BlogCtrl', function (/* $scope, $location, $http */) {
-  console.log("Blog Controller reporting for duty.");
+app.controller('BlogCtrl', function ($scope) {
+  $scope.BlogCtrl = this;
+  angular.extend($scope.BlogCtrl,{
+    title: "My blogs"
+  });
+
 });
 
 app.controller('MainCtrl', function (Github, $log) {

@@ -40,14 +40,19 @@ h3{
     line-height: 2.15;
     letter-spacing: 0.02em;
 }
+.navcontainer{
+  display: flex;
+  justify-content: space-between;  
+  align-items: baseline;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
 ul.nav{
   /*border-bottom: 1px solid #ccc;*/
-  max-width: 200px;
-  margin: 0 auto;
+/*  max-width: 200px;*/  
   margin-top: 50px;
+  margin-bottom: 0px;
   /*background-color: blue;*/
-  display: flex;
-  justify-content: space-between;
 }
 ul>li{
   display: inline-block;
@@ -56,19 +61,22 @@ ul>li{
   font-style: normal;
   font-size: 16px;
   text-transform: uppercase;
+  margin-left: 15px;
 }
 ul.nav.social{
-
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 25px;
   max-width: 150px;
 }
 .social > li> a > i{
   font-size: 28px;
 }
 a {
-    -moz-transition: all .3s ease-in;
-    -o-transition: all .3s ease-in;
-    -webkit-transition: all .3s ease-in;
-    transition: all .3s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
     color: black;
     text-decoration: none;
     filter: alpha(opacity=50);
